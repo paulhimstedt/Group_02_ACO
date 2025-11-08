@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Rathausplatz Christmas Market",
+    "latitude": 48.2108,
+    "longitude": 16.3570,
+    "opening_time": "10:00",
+    "closing_time": "22:00"
+  },
+  {
+    "id": 2,
+    "name": "Schönbrunn Christmas Market",
+    "latitude": 48.1856,
+    "longitude": 16.3122,
+    "opening_time": "10:00",
+    "closing_time": "21:00"
+  }
+]
