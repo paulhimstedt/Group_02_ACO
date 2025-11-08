@@ -1,7 +1,7 @@
 # config.py
 
 # Google Maps API key
-GOOGLE_MAPS_API_KEY = "YOUR_API_KEY"
+GOOGLE_MAPS_API_KEY = "AIzaSyBfReOC4ubBKTK7O2zfIfu-JTe1fTfXTLY"
 
 # Travel mode: "walking" or "transit"
 TRAVEL_MODE = "transit"

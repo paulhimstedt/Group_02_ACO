@@ -1,18 +1,258 @@
 [
   {
-    "id": 1,
-    "name": "Rathausplatz Christmas Market",
-    "latitude": 48.2108,
-    "longitude": 16.3570,
+    "id": "1",
+    "name": "MQ",
+    "latitude": 48.2115461,
+    "longitude": 16.3838887,
+    "opening_time": "14:00",
+    "closing_time": "23:00"
+  },
+  {
+    "id": "2",
+    "name": "Altes AKH",
+    "latitude": 48.21499491384239,
+    "longitude": 16.353884328835537,
+    "opening_time": "11:00",
+    "closing_time": "23:00"
+  },
+  {
+    "id": "3",
+    "name": "Am Hof",
+    "latitude": 48.21119833081637, 
+    "longitude": 16.36785035961636,
+    "opening_time": "10:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "4",
+    "name": "Spittelberg",
+    "latitude": 48.20298051156513, 
+    "longitude": 16.35573132424281,
+    "opening_time": "10:00",
+    "closing_time": "21:30"
+  },
+  {
+    "id": "5",
+    "name": "Stephansplatz",
+    "latitude": 48.208313144804016, 
+    "longitude": 16.372523155717882,
+    "opening_time": "11:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "6",
+    "name": "Opera",
+    "latitude": 48.202962767438876, 
+    "longitude": 16.369513065469008,
+    "opening_time": "11:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "7",
+    "name": "Türkenschanzpark",
+    "latitude": 48.23723023577468, 
+    "longitude": 16.334505924244265,
+    "opening_time": "12:00",
+    "closing_time": "22:00"
+  },
+  {
+    "id": "8",
+    "name": "Maria-Theresien-Platz",
+    "latitude": 48.204763809150755, 
+    "longitude": 16.36093005121389,
+    "opening_time": "11:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "9",
+    "name": "Blumengärten Hirschstetten",
+    "latitude": 48.2390076762534, 
+    "longitude": 16.474301899106354,
     "opening_time": "10:00",
     "closing_time": "22:00"
   },
   {
-    "id": 2,
-    "name": "Schönbrunn Christmas Market",
-    "latitude": 48.1856,
-    "longitude": 16.3122,
+    "id": "10",
+    "name": "Palais Liechtenstein",
+    "latitude": 48.222660894989524, 
+    "longitude": 16.359589200772007,
+    "opening_time": "11:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "11",
+    "name": "Belvedere",
+    "latitude": 48.1915308,
+    "longitude": 16.380914,
     "opening_time": "10:00",
     "closing_time": "21:00"
+  },
+  {
+    "id": "12",
+    "name": "Karlsplatz",
+    "latitude": 48.1989227637117, 
+    "longitude": 16.3714175817384,
+    "opening_time": "12:00",
+    "closing_time": "20:00"
+  },
+  {
+    "id": "13",
+    "name": "Messe",
+    "latitude": 48.21823541229044, 
+    "longitude": 16.40771435716646,
+    "opening_time": "14:00",
+    "closing_time": "22:00"
+  },
+  {
+    "id": "14",
+    "name": "Altwiener Christkindlmarkt",
+    "latitude": 48.21185852132642, 
+    "longitude": 16.36532833536844,
+    "opening_time": "10:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "15",
+    "name": "Biobauern-Adventmarkt",
+    "latitude": 48.211736757211845, 
+    "longitude": 16.36559364732333,
+    "opening_time": "10:00",
+    "closing_time": "19:30"
+  },
+  {
+    "id": "16",
+    "name": "Rathaus",
+    "latitude": 48.21067237386855, 
+    "longitude": 16.358735206098263,
+    "opening_time": "10:00",
+    "closing_time": "21:30"
+  },
+  {
+    "id": "17",
+    "name": "Schönbrunn",
+    "latitude": 48.18546458109327, 
+    "longitude": 16.31252444492263,
+    "opening_time": "10:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "18",
+    "name": "Prater / Riesenrad",
+    "latitude": 48.21685176567233, 
+    "longitude": 16.39599687320624,
+    "opening_time": "11:00",
+    "closing_time": "22:00"
+  },
+  {
+    "id": "19",
+    "name": "Mittelalterlicher Adventmarkt",
+    "latitude": 48.18430156672321, 
+    "longitude": 16.388880878372948,
+    "opening_time": "09:00",
+    "closing_time": "22:00"
+  },
+  {
+    "id": "20",
+    "name": "Weihnachtsmarkt am Michaelerplatz",
+    "latitude": 48.208130474884975, 
+    "longitude": 16.36684227116446,
+    "opening_time": "10:00",
+    "closing_time": "20:00"
+  },
+  {
+    "id": "21",
+    "name": "Schloss Wilhelminenberg",
+    "latitude": 48.21964553863488, 
+    "longitude": 16.285680890756105,
+    "opening_time": "11:00",
+    "closing_time": "20:00"
+  },
+  {
+    "id": "22",
+    "name": "Advent in der Stallburg",
+    "latitude": 48.20749969837704, 
+    "longitude": 16.36718949725617,
+    "opening_time": "11:00",
+    "closing_time": "20:00"
+  },
+  {
+    "id": "23",
+    "name": "Adventmarkt Mariahilf",
+    "latitude": 48.199495019025285, 
+    "longitude": 16.352894626268913,
+    "opening_time": "09:00",
+    "closing_time": "20:00"
+  },
+  {
+    "id": "24",
+    "name": "IKEA Westbahnhof",
+    "latitude": 48.19585794456595, 
+    "longitude": 16.33808658650662,
+    "opening_time": "14:00",
+    "closing_time": "20:00"
+  },
+  {
+    "id": "25",
+    "name": "Christkindlmarkt Floridsdorf (am Franz-Jonas-Platz)",
+    "latitude": 48.25635458996611, 
+    "longitude": 16.399050235582234,
+    "opening_time": "09:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "26",
+    "name": "Adventmark Verkehrsmuseum Remise",
+    "latitude": 48.196638862561734, 
+    "longitude": 16.407827484657837,
+    "opening_time": "14:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "27",
+    "name": "Weihnacht im Wald",
+    "latitude": 48.20804540387527, 
+    "longitude": 16.40302350739512,
+    "opening_time": "16:00",
+    "closing_time": "21:00"
+  },
+  {
+    "id": "28",
+    "name": "Adventmarkt Favoriten",
+    "latitude": 48.18062534980825, 
+    "longitude": 16.37560037116446,
+    "opening_time": "10:00",
+    "closing_time": "20:30"
+  },
+  {
+    "id": "29",
+    "name": "Winterzauber im Böhmischen Prater",
+    "latitude": 48.16617625908763, 
+    "longitude": 16.400975693253315,
+    "opening_time": "11:00",
+    "closing_time": "20:00"
+  },
+  {
+    "id": "30",
+    "name": "Adventmarkt Meidling",
+    "latitude": 48.18147913622667, 
+    "longitude": 16.32975877301323,
+    "opening_time": "10:00",
+    "closing_time": "20:30"
+  },
+  {
+    "id": "31",
+    "name": "Ottakringer Weihnachtszauber",
+    "latitude": 48.212592068046156, 
+    "longitude": 16.324355015894085,
+    "opening_time": "11:00",
+    "closing_time": "22:00"
+  },
+  {
+    "id": "32",
+    "name": "Adventmarkt im Schloss Neugebäude",
+    "latitude": 48.160728241757326, 
+    "longitude": 16.443883942328924,
+    "opening_time": "10:00",
+    "closing_time": "20:00"
   }
 ]
