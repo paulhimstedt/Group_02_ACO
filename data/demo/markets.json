@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Rathausplatz Christmas Market",
+    "latitude": 48.2108,
+    "longitude": 16.3570,
+    "opening_time": "10:00",
+    "closing_time": "22:00",
+    "description": "Traditional market in front of City Hall"
+  },
+  {
+    "id": 2,
+    "name": "Schönbrunn Christmas Market",
+    "latitude": 48.1856,
+    "longitude": 16.3122,
+    "opening_time": "10:00",
+    "closing_time": "21:00",
+    "description": "Market at Schönbrunn Palace"
+  },
+  {
+    "id": 3,
+    "name": "Stephansplatz Christmas Market",
+    "latitude": 48.2085,
+    "longitude": 16.3732,
+    "opening_time": "10:00",
+    "closing_time": "22:00",
+    "description": "Market at St. Stephen's Cathedral"
+  },
+  {
+    "id": 4,
+    "name": "Spittelberg Christmas Market",
+    "latitude": 48.2012,
+    "longitude": 16.3511,
+    "opening_time": "14:00",
+    "closing_time": "21:00",
+    "description": "Artisan market in historic quarter"
+  },
+  {
+    "id": 5,
+    "name": "Karlsplatz Christmas Market",
+    "latitude": 48.2010,
+    "longitude": 16.3722,
+    "opening_time": "12:00",
+    "closing_time": "20:00",
+    "description": "Market near Karlskirche"
+  },
+  {
+    "id": 6,
+    "name": "Belvedere Christmas Market",
+    "latitude": 48.1914,
+    "longitude": 16.3808,
+    "opening_time": "11:00",
+    "closing_time": "21:00",
+    "description": "Market at Belvedere Palace"
+  },
+  {
+    "id": 7,
+    "name": "Am Hof Christmas Market",
+    "latitude": 48.2104,
+    "longitude": 16.3686,
+    "opening_time": "10:00",
+    "closing_time": "22:00",
+    "description": "Historic square market"
+  },
+  {
+    "id": 8,
+    "name": "Freyung Christmas Market",
+    "latitude": 48.2115,
+    "longitude": 16.3651,
+    "opening_time": "10:00",
+    "closing_time": "21:00",
+    "description": "Artisan crafts market"
+  },
+  {
+    "id": 9,
+    "name": "Naschmarkt Christmas Market",
+    "latitude": 48.1985,
+    "longitude": 16.3638,
+    "opening_time": "11:00",
+    "closing_time": "20:00",
+    "description": "Market at Vienna's famous food market"
+  },
+  {
+    "id": 10,
+    "name": "Maria-Theresien-Platz",
+    "latitude": 48.2038,
+    "longitude": 16.3619,
+    "opening_time": "11:00",
+    "closing_time": "21:30",
+    "description": "Market between museums"
+  },
+  {
+    "id": 11,
+    "name": "Altes AKH Christmas Market",
+    "latitude": 48.2162,
+    "longitude": 16.3478,
+    "opening_time": "14:00",
+    "closing_time": "22:00",
+    "description": "University campus market"
+  },
+  {
+    "id": 12,
+    "name": "Türkenschanzpark Market",
+    "latitude": 48.2344,
+    "longitude": 16.3375,
+    "opening_time": "15:00",
+    "closing_time": "20:00",
+    "description": "Park setting market"
+  }
+]
