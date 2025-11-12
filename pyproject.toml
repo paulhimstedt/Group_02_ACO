@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "ACO-based optimization for Vienna Christmas market visiting with time constraints"
 authors = ["Group 02 - Seidel Rally Vienna ACO"]
 readme = "README.md"
-packages = [{include = "src"}]
+packages = [{include = "modules"}, {include = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"

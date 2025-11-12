@@ -113,7 +113,7 @@ def load_problem_instance(markets_path: str,
         opening = datetime.strptime(m['opening_time'], '%H:%M').time()
         closing = datetime.strptime(m['closing_time'], '%H:%M').time()
         markets.append(Market(
-            id=m['id'],
+            id=int(m['id']),  # Convert to int to match travel_times keys
             name=m['name'],
             latitude=m['latitude'],
             longitude=m['longitude'],

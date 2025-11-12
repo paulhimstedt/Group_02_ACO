@@ -142,8 +142,11 @@ class AntColonyOptimizer:
         
         # Start time is when market opens
         current_market = self.problem.get_market_by_id(current_id)
-        current_time = self._time_to_minutes(current_market.opening_time)
-        arrival_times = [self._minutes_to_time(current_time)]
+        arrival_time_first = self._time_to_minutes(current_market.opening_time)
+        arrival_times = [self._minutes_to_time(arrival_time_first)]
+        
+        # After visiting first market, current_time is when we depart
+        current_time = arrival_time_first + stay_duration
         
         # Visit markets until no more can be added
         while True:
@@ -154,7 +157,7 @@ class AntColonyOptimizer:
             
             # Calculate arrival time at next market
             travel_time = self.problem.get_travel_time(current_id, next_id)
-            current_time += stay_duration + travel_time + self.problem.transfer_buffer
+            current_time += travel_time + self.problem.transfer_buffer
             
             next_market = self.problem.get_market_by_id(next_id)
             arrival_time_minutes = current_time
@@ -174,6 +177,9 @@ class AntColonyOptimizer:
             route.append(next_id)
             visited.add(next_id)
             arrival_times.append(self._minutes_to_time(arrival_time_minutes))
+            
+            # Update current_time to departure from this market
+            current_time = arrival_time_minutes + stay_duration
             current_id = next_id
         
         # Calculate solution metrics
@@ -192,9 +198,24 @@ class AntColonyOptimizer:
     
     def _select_next_market(self, current_id: int, visited: set, current_time: float,
                            stay_duration: int, excluded_markets: List[int]) -> int:
-        """Select next market using ACO probability."""
-        available = [m for m in self.problem.markets 
-                    if m.id not in visited and m.id not in excluded_markets]
+        """Select next market using ACO probability.
+        
+        Note: current_time is the time we DEPART the current market (after staying).
+        """
+        # Filter feasible markets considering time windows
+        available = []
+        for m in self.problem.markets:
+            if m.id in visited or m.id in excluded_markets:
+                continue
+            
+            # Check time feasibility
+            travel_time = self.problem.get_travel_time(current_id, m.id)
+            # Arrival at next market (including buffer which is added in construct_solution)
+            arrival = current_time + travel_time + self.problem.transfer_buffer
+            latest = self._time_to_minutes(m.latest_arrival_time(stay_duration))
+            
+            if arrival <= latest:
+                available.append(m)
         
         if not available:
             return None
@@ -217,14 +238,9 @@ class AntColonyOptimizer:
             heuristic = 1.0 / distance
             
             # Time window urgency (prefer markets closing soon)
-            time_after_travel = current_time + stay_duration + distance + self.problem.transfer_buffer
+            time_after_travel = current_time + distance + self.problem.transfer_buffer
             closing_minutes = self._time_to_minutes(market.closing_time)
             time_until_close = closing_minutes - time_after_travel
-            
-            if time_until_close < stay_duration:
-                # Can't visit this market
-                continue
-            
             urgency = 1.0 / max(time_until_close, 1.0)
             
             # Combined probability

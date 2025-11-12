@@ -1,0 +1,58 @@
+# Vienna Christmas Market Optimizer Configuration
+
+# Data sources
+data:
+  use_demo: false  # Set to true to use demo data
+  demo_markets_path: "data/demo/markets.json"
+  demo_travel_times_path: "data/demo/travel_times.json"
+  real_markets_path: "data/real/markets.json"
+  real_travel_times_path: "data/real/travel_times.json"
+
+# Problem parameters
+problem:
+  num_days: 1
+  stay_duration: [30]  # Minutes to stay at each market (list for multi-day)
+  transfer_buffer: 5   # Extra minutes for transfers between markets
+
+# Algorithm selection
+algorithm:
+  type: "aco"  # Options: "aco" or "greedy"
+
+# ACO parameters
+aco:
+  num_ants: 50
+  num_iterations: 100
+  alpha: 1.0              # Pheromone importance
+  beta: 2.0               # Distance heuristic importance
+  gamma: 1.5              # Time window urgency importance
+  evaporation: 0.5
+  pheromone_init: 1.0
+  Q: 100
+  use_elite: true
+  elite_weight: 2.0
+
+# Greedy parameters
+greedy:
+  heuristic: "hybrid"  # Options: "nearest", "earliest_closing", "time_efficient", "hybrid"
+  distance_weight: 0.4
+  time_window_weight: 0.6
+
+# Visualization
+visualization:
+  plot_route: true
+  plot_gantt: true
+  plot_statistics: true
+  plot_convergence: true
+  save_figures: true
+  figure_format: "png"  # Options: "png", "pdf", "svg"
+  figure_dpi: 300
+
+# Output
+output:
+  results_dir: "results"
+  log_level: "INFO"  # Options: "DEBUG", "INFO", "WARNING", "ERROR"
+  verbose: true
+
+# Performance
+performance:
+  random_seed: 42

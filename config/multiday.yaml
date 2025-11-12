@@ -1,0 +1,58 @@
+# Multi-Day Configuration Example
+
+# Data sources
+data:
+  use_demo: false  # Using real data (32 markets)
+  demo_markets_path: "data/demo/markets.json"
+  demo_travel_times_path: "data/demo/travel_times.json"
+  real_markets_path: "data/real/markets.json"
+  real_travel_times_path: "data/real/travel_times.json"
+
+# Problem parameters
+problem:
+  num_days: 3  # Visit markets over 3 days
+  stay_duration: [30, 45, 60]  # Longer stays as you get tired (30min day1, 45min day2, 60min day3)
+  transfer_buffer: 5
+
+# Algorithm selection
+algorithm:
+  type: "aco"
+
+# ACO parameters
+aco:
+  num_ants: 50
+  num_iterations: 100
+  alpha: 1.0
+  beta: 2.0
+  gamma: 1.5
+  evaporation: 0.5
+  pheromone_init: 1.0
+  Q: 100
+  use_elite: true
+  elite_weight: 2.0
+
+# Greedy parameters
+greedy:
+  heuristic: "hybrid"
+  distance_weight: 0.4
+  time_window_weight: 0.6
+
+# Visualization
+visualization:
+  plot_route: true
+  plot_gantt: true
+  plot_statistics: true
+  plot_convergence: true
+  save_figures: true
+  figure_format: "png"
+  figure_dpi: 300
+
+# Output
+output:
+  results_dir: "results"
+  log_level: "INFO"
+  verbose: true
+
+# Performance
+performance:
+  random_seed: 42
