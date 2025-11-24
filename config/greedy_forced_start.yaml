@@ -1,0 +1,43 @@
+# Example: Greedy with Starting Point - FORCED MODE
+# This forces Greedy to ONLY try the starting market
+# Faster but might miss better routes starting elsewhere
+
+data:
+  use_demo: false
+  real_markets_path: "data/real/markets.json"
+  real_travel_times_path: "data/real/travel_times.json"
+
+problem:
+  num_days: 1
+  stay_duration: [30]
+  transfer_buffer: 5
+  start_location:
+    enabled: true
+    latitude: 48.2082
+    longitude: 16.3738
+    name: "Stephansplatz Area"
+    force_greedy_start: true  # FORCED: Only try this starting point
+
+algorithm:
+  type: "greedy"
+
+greedy:
+  heuristic: "hybrid"
+  distance_weight: 0.4
+  time_window_weight: 0.6
+
+visualization:
+  plot_route: true
+  plot_gantt: true
+  plot_statistics: true
+  save_figures: true
+  figure_format: "png"
+  figure_dpi: 300
+
+output:
+  results_dir: "results"
+  log_level: "INFO"
+  verbose: true
+
+performance:
+  random_seed: 42

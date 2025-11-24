@@ -135,8 +135,12 @@ class AntColonyOptimizer:
         if not available_markets:
             return Solution([], [], 0, 0, 0, False)
         
-        # Start at random available market
-        current_id = np.random.choice(available_markets)
+        # Start at specified market or random available market
+        if self.problem.start_market_id is not None and self.problem.start_market_id not in excluded_markets:
+            current_id = self.problem.start_market_id
+        else:
+            current_id = np.random.choice(available_markets)
+        
         route = [current_id]
         visited = {current_id}
         

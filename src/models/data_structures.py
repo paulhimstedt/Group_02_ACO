@@ -69,6 +69,8 @@ class ProblemInstance:
     num_days: int
     stay_durations: List[int]  # Stay duration per day
     transfer_buffer: int = 5  # Buffer time for transfers
+    start_market_id: Optional[int] = None  # Optional: specific starting market ID
+    force_greedy_start: bool = False  # If True, Greedy only tries start_market_id
     
     def get_travel_time(self, from_id: int, to_id: int) -> float:
         """Get travel time between two markets."""
@@ -101,7 +103,8 @@ def load_problem_instance(markets_path: str,
                           travel_times_path: str,
                           num_days: int = 1,
                           stay_durations: List[int] = None,
-                          transfer_buffer: int = 5) -> ProblemInstance:
+                          transfer_buffer: int = 5,
+                          start_location: Dict = None) -> ProblemInstance:
     """Load problem instance from JSON files."""
     
     # Load markets
@@ -138,10 +141,40 @@ def load_problem_instance(markets_path: str,
         # Extend with last value
         stay_durations = stay_durations + [stay_durations[-1]] * (num_days - len(stay_durations))
     
+    # Determine starting market if location specified
+    start_market_id = None
+    force_greedy_start = False
+    if start_location and start_location.get('enabled', False):
+        start_lat = start_location.get('latitude')
+        start_lon = start_location.get('longitude')
+        if start_lat is not None and start_lon is not None:
+            start_market_id = _find_nearest_market(markets, start_lat, start_lon)
+        force_greedy_start = start_location.get('force_greedy_start', False)
+    
     return ProblemInstance(
         markets=markets,
         travel_times=travel_times,
         num_days=num_days,
         stay_durations=stay_durations,
-        transfer_buffer=transfer_buffer
+        transfer_buffer=transfer_buffer,
+        start_market_id=start_market_id,
+        force_greedy_start=force_greedy_start
     )
+
+
+def _find_nearest_market(markets: List[Market], lat: float, lon: float) -> int:
+    """Find the nearest market to given coordinates using haversine distance."""
+    import math
+    
+    def haversine(lat1, lon1, lat2, lon2):
+        R = 6371  # Earth radius in km
+        dlat = math.radians(lat2 - lat1)
+        dlon = math.radians(lon2 - lon1)
+        a = (math.sin(dlat/2)**2 + 
+             math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * 
+             math.sin(dlon/2)**2)
+        c = 2 * math.asin(math.sqrt(a))
+        return R * c
+    
+    nearest = min(markets, key=lambda m: haversine(lat, lon, m.latitude, m.longitude))
+    return nearest.id

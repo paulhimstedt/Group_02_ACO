@@ -46,6 +46,9 @@ Find an optimal route that maximizes the number of markets visited, supporting b
 ## Key Features
 - **Multi-Day Planning**: Support for 1-3 day itineraries with different stay durations per day
 - **Multiple Algorithms**: ACO with elite ants and Greedy with hybrid heuristics
+- **Configurable Starting Point**: Start routes from your home/hotel coordinates
+  - **Forced Mode**: Start only from specified location (fast, convenient)
+  - **Explore Mode**: Try all markets to find optimal route (slow, comprehensive)
 - **Comprehensive Visualization**: Route maps, Gantt charts, statistics, convergence plots
 - **Interactive Maps**: Folium-based interactive maps showing routes on OpenStreetMap
 - **Multi-Day Visualizations**: Side-by-side routes, combined Gantt charts, daily statistics
@@ -125,6 +128,14 @@ problem:
   num_days: 3                    # Number of days (1-3)
   stay_duration: [30, 45, 60]    # Minutes per market (list for multi-day)
   transfer_buffer: 5             # Extra minutes for transfers
+  start_location:                # Optional starting point
+    enabled: true                # Set to true to use specific start
+    latitude: 48.2082            # Your home/hotel coordinates
+    longitude: 16.3738
+    name: "Home"                 # Optional friendly name
+    force_greedy_start: false    # For Greedy algorithm:
+                                 #   true = Only try start location (fast)
+                                 #   false = Try all markets, find best route (comprehensive)
 
 algorithm:
   type: "aco"                    # "aco" or "greedy"
@@ -136,6 +147,11 @@ aco:
   beta: 2.0                      # Distance heuristic
   gamma: 1.5                     # Time window urgency
 
+greedy:
+  heuristic: "hybrid"            # "nearest", "earliest_closing", "time_efficient", "hybrid"
+  distance_weight: 0.4           # Weight for distance in hybrid mode
+  time_window_weight: 0.6        # Weight for time windows in hybrid mode
+
 visualization:
   plot_route: true               # Route maps
   plot_gantt: true               # Timeline charts
@@ -143,6 +159,13 @@ visualization:
   plot_convergence: true         # Convergence history
   save_figures: true             # Save to results/
 ```
+
+**Understanding `force_greedy_start`:**
+- `true`: Greedy only tries your specified starting point (faster, starts near you)
+- `false`: Greedy tries ALL markets to find the route with most visits (slower, might start far away but visits more markets overall)
+- **Use case for `false`**: You're willing to travel far initially (e.g., take U-Bahn to the outskirts) to optimize the total route and visit more markets
+
+See [`docs/GREEDY_MODES_GUIDE.md`](docs/GREEDY_MODES_GUIDE.md) for detailed explanation and [`docs/STARTING_POINT.md`](docs/STARTING_POINT.md) for starting point basics.
 
 ## Data Preparation
 

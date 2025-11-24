@@ -1,0 +1,64 @@
+# Example Configuration with Starting Point
+# This shows how to configure the optimizer to start from a specific location
+
+# Data sources
+data:
+  use_demo: false
+  demo_markets_path: "data/demo/markets.json"
+  demo_travel_times_path: "data/demo/travel_times.json"
+  real_markets_path: "data/real/markets.json"
+  real_travel_times_path: "data/real/travel_times.json"
+
+# Problem parameters
+problem:
+  num_days: 1
+  stay_duration: [30]
+  transfer_buffer: 5
+  start_location:
+    enabled: true  # ENABLED: Start from specific location
+    latitude: 48.2082  # Vienna city center (Stephansplatz area)
+    longitude: 16.3738
+    name: "City Center"
+
+# Algorithm selection
+algorithm:
+  type: "aco"  # or "greedy"
+
+# ACO parameters
+aco:
+  num_ants: 20
+  num_iterations: 50
+  alpha: 1.0
+  beta: 2.0
+  gamma: 1.5
+  evaporation: 0.5
+  pheromone_init: 1.0
+  Q: 100
+  use_elite: true
+  elite_weight: 2.0
+
+# Greedy parameters
+greedy:
+  heuristic: "hybrid"
+  distance_weight: 0.4
+  time_window_weight: 0.6
+
+# Visualization
+visualization:
+  plot_route: true
+  plot_gantt: true
+  plot_statistics: true
+  plot_convergence: true
+  save_figures: true
+  figure_format: "png"
+  figure_dpi: 300
+
+# Output
+output:
+  results_dir: "results"
+  log_level: "INFO"
+  verbose: true
+
+# Performance
+performance:
+  random_seed: 42

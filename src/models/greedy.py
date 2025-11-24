@@ -45,11 +45,30 @@ class GreedyOptimizer:
         
         stay_duration = self.problem.stay_durations[day - 1]
         
-        # Try starting from each available market
-        best_solution = None
-        available_starts = [m for m in self.problem.markets if m.id not in excluded_markets]
+        # Determine which markets to try as starting points
+        available_markets = [m for m in self.problem.markets if m.id not in excluded_markets]
         
-        for start_market in available_starts:
+        if self.problem.start_market_id is not None:
+            start_market = self.problem.get_market_by_id(self.problem.start_market_id)
+            if start_market and start_market.id not in excluded_markets:
+                if self.problem.force_greedy_start:
+                    # Only try the specified starting market
+                    logger.info(f"Greedy: Using forced starting point - {start_market.name}")
+                    solution = self._construct_solution(start_market, stay_duration, excluded_markets)
+                    solution.day = day
+                    if solution.is_feasible:
+                        logger.info(f"Greedy ({self.heuristic}) found solution with {solution.total_markets_visited} markets")
+                    else:
+                        logger.warning("Greedy: Forced starting point produced no feasible solution")
+                        solution = Solution([], [], 0, 0, 0, False, day)
+                    return solution
+                else:
+                    # Try all markets but prefer starting market
+                    logger.info(f"Greedy: Exploring all routes with preferred start - {start_market.name}")
+        
+        # Try all available markets as starting points (default behavior or when force_greedy_start=False)
+        best_solution = None
+        for start_market in available_markets:
             solution = self._construct_solution(start_market, stay_duration, excluded_markets)
             
             if solution.is_feasible:

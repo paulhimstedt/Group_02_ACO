@@ -109,11 +109,20 @@ def main():
         travel_times_path=travel_times_path,
         num_days=config['problem']['num_days'],
         stay_durations=config['problem']['stay_duration'],
-        transfer_buffer=config['problem']['transfer_buffer']
+        transfer_buffer=config['problem']['transfer_buffer'],
+        start_location=config['problem'].get('start_location')
     )
     
     logger.info(f"Loaded {len(problem.markets)} markets")
     logger.info(f"Solving for {problem.num_days} day(s)")
+    if problem.start_market_id is not None:
+        start_market = problem.get_market_by_id(problem.start_market_id)
+        logger.info(f"Starting location set to: {start_market.name} (ID: {problem.start_market_id})")
+        if config['algorithm']['type'] == 'greedy':
+            if problem.force_greedy_start:
+                logger.info("Greedy mode: FORCED START (only trying specified market)")
+            else:
+                logger.info("Greedy mode: EXPLORING ALL (trying all markets for best route)")
     
     # Create output directory
     output_dir = config['output']['results_dir']

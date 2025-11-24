@@ -13,6 +13,12 @@ problem:
   num_days: 1
   stay_duration: [30]  # Minutes to stay at each market (list for multi-day)
   transfer_buffer: 5   # Extra minutes for transfers between markets
+  start_location:  # Optional: specify starting coordinates
+    enabled: false  # Set to true to use a specific starting point
+    latitude: 48.2082  # Example: Vienna city center
+    longitude: 16.3738
+    name: "Home"  # Optional: name for the starting location
+    force_greedy_start: false  # If true, Greedy only tries start location; if false, tries all markets even with start point
 
 # Algorithm selection
 algorithm:
